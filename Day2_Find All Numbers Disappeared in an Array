@@ -1,0 +1,10 @@
+var findDisappearedNumbers = function(nums) {
+    let a = new Set(nums);
+    let b = [];
+    for(let i =1;i<=nums.length;i++){
+        if(!a.has(i)){
+            b.push(i);
+        }
+    }
+    return b;
+};
