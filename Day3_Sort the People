@@ -8,3 +8,18 @@ var sortPeople = function (names, heights) {
     }
     return d;
 };
+
+
+
+
+
+
+var sortPeople = function (names, heights) {
+    let a = [...heights];
+    heights.sort(function (a, b) { return b - a });
+    let d = [];
+    for (let i=0;i<heights.length;i++) {
+        d[i] = names[a.indexOf(heights[i])];
+    }
+    return d;
+};
