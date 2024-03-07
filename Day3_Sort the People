@@ -1,0 +1,10 @@
+var sortPeople = function (names, heights) {
+    let a = [...heights];
+    let c = heights.sort(function (a, b) { return b - a });
+    let d = [];
+    for (let item of heights) {
+        let b = a.indexOf(item);
+        d.push(names[b]);
+    }
+    return d;
+};
