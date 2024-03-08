@@ -1,0 +1,27 @@
+var maxFrequencyElements = function (nums) {
+    const obj = {};
+    let maxelement = nums[0];
+    let maxcount = 1;
+    let count = 0
+
+    for (let i = 0; i < nums.length; i++) {
+        let element = nums[i];
+        if (obj[element]) {
+            obj[element]++;
+        } else {
+            obj[element] = 1;
+        }
+
+        if (obj[element] > maxcount) {
+            maxcount = obj[element];
+            maxelement = element;
+        }
+    }
+
+    for (let item of Object.keys(obj)) {
+        if (obj[item] == maxcount) {
+            count = count + maxcount;
+        }
+    }
+    return count;
+};
