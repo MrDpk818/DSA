@@ -1,0 +1,51 @@
+var similarPairs = function (words) {
+    let f = {};
+    let pairs = 0;
+    let max = 0;
+    for (let i of words) {
+        let a = [...new Set(i)].sort().join('');
+        if (f[a]) {
+            f[a]++;
+        } else {
+            f[a] = 1;
+        }
+        max = Math.max(f[a], max);
+    }
+
+    for (let key in f) {
+        if (f[key] > 1) {
+            pairs += f[key] * (f[key] - 1) / 2;
+        }
+    }
+    return pairs;
+};
+
+
+
+
+var similarPairs = function (words) {
+    let b = [];
+    let f = {};
+    let pairs = 0;
+    let max = 0;
+    for (let i of words) {
+        let a = [...new Set(i)].sort().join('');
+        b.push(a);
+    }
+
+    for(let i of b){
+        if (f[i]) {
+            f[i]++;
+        } else {
+            f[i] = 1;
+        }
+        max = Math.max(f[i], max);
+    }
+
+    for (let key in f) {
+        if (f[key] > 1) {
+            pairs += f[key] * (f[key] - 1) / 2;
+        }
+    }
+    return pairs;
+};
