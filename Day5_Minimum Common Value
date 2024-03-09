@@ -1,0 +1,14 @@
+var getCommon = function (nums1, nums2) {
+    let nums1Set = new Set(nums1);
+    let smallestCommon = Infinity;
+    for (let item of nums2) {
+        if (nums1Set.has(item)) {
+            smallestCommon = Math.min(smallestCommon, item);
+        }
+    }
+    if(smallestCommon === Infinity){
+        return -1;
+    }else{
+        return smallestCommon;
+    }
+};
