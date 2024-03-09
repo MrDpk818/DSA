@@ -3,7 +3,6 @@ var mostCommonWord = function (paragraph, banned) {
     let n = {};
     let maxcount = 0;
     let mostcommonword = '';
-    let bannedSet = new Set(banned);
 
     if (a.length === 1) {
         return a[0];
