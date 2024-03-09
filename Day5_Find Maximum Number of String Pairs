@@ -1,0 +1,53 @@
+var maximumNumberOfStringPairs = function (words) {
+    const obj = {};
+    let max = 0;
+    let result = 0;
+    for (let i of words) {
+        let a = [...i].sort().join('');
+        if (obj[a]) {
+            obj[a]++;
+        } else {
+            obj[a] = 1;
+        }
+
+        if (obj[a] > max) {
+            max = obj[a];
+        }
+    }
+
+    for (let i of Object.keys(obj)) {
+        if (obj[i] === 2) {
+            result++;
+        }
+    }
+    return result;
+};
+
+
+
+
+var maximumNumberOfStringPairs = function (words) {
+    let newWords = []
+    const obj = {};
+    let max = 0;
+    let result = 0;
+    for (let i of words) {
+        let a = [...i].sort().join('');
+        newWords.push(a);
+    }
+    for (let item of newWords) {
+        if (obj[item]) {
+            obj[item]++;
+        } else {
+            obj[item] = 1;
+        }
+
+        if (obj[item] > max) {
+            max = obj[item];
+        }
+        if (obj[item] === 2) {
+            result++;
+        }
+    }
+    return result;
+};
