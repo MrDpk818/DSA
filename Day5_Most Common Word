@@ -1,0 +1,29 @@
+var mostCommonWord = function (paragraph, banned) {
+    let a = paragraph.toLowerCase().match(/\b\w+\b/g) || [];
+    let n = {};
+    let maxcount = 0;
+    let mostcommonword = '';
+    let bannedSet = new Set(banned);
+
+    if (a.length === 1) {
+        return a[0];
+    }
+
+    for (let i = 0; i < a.length; i++) {
+        if (!banned.includes(a[i])) {
+            let element = a[i];
+            if (n[element]) {
+                n[element]++;
+            } else {
+                n[element] = 1;
+            }
+        }
+    }
+    for (let item in n) {
+        if (n[item] > maxcount) {
+            maxcount = n[item];
+            mostcommonword = item;
+        }
+    }
+    return mostcommonword;
+};
