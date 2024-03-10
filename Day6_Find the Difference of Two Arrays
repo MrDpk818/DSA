@@ -1,0 +1,17 @@
+var findDifference = function (nums1, nums2) {
+    let a = new Set(nums1);
+    let b = new Set(nums2);
+    let c = [];
+    let d = [];
+    for (let item of a) {
+        if (!b.has(item)) {
+            c.push(item);
+        }
+    }
+    for (let item of b) {
+        if (!a.has(item)) {
+            d.push(item);
+        }
+    }
+    return [c,d];
+};
