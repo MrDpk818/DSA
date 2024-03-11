@@ -1,0 +1,23 @@
+var customSortString = function (order, s) {
+    let obj = {};
+    let a = '';
+    for (let i of order) {
+            obj[i]=0;
+    }
+    for (let i of s) {
+        if(obj[i] !=undefined){
+            obj[i]++;
+        }
+    }
+
+    for(let i of order){
+        a += i.repeat(obj[i]);
+    }
+
+    for(let i of s){
+        if(!order.includes(i)){
+            a += i;
+        }
+    }
+    return a;
+};
