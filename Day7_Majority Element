@@ -1,0 +1,13 @@
+var majorityElement = function (nums) {
+    let obj = {};
+    for (let i of nums) {
+        if (obj[i]) {
+            obj[i]++;
+        } else {
+            obj[i] = 1;
+        }
+        if (obj[i] > nums.length / 2) {
+            return i;
+        }
+    }
+};
