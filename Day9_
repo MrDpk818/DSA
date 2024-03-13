@@ -1,0 +1,15 @@
+var pivotInteger = function (n) {
+    let x = n * (n + 1) / 2;
+    let y = Math.floor(x ** (1 / 2));
+    let z = y * (y + 1) / 2;
+    let count = 0;
+    for (let i = y; i <= n; i++) {
+        count += i;
+    }
+
+    if (count == z) {
+        return y;
+    }else{
+        return -1;
+    }
+};
