@@ -1,0 +1,23 @@
+var findRestaurant = function (list1, list2) {
+    let newMap = new Map();
+    let min = Infinity;
+    let result = [];
+
+    list1.forEach((item,index)=>{
+        newMap.set(item,index);
+    })
+
+    list2.forEach((item,index)=>{
+        if(newMap.has(item)){
+            let current = index + newMap.get(item);
+            if(current<min){
+                min = current;
+                result.length = 0;
+                result.push(item);
+            }else if(current == min){
+                result.push(item);
+            }
+        }
+    });
+    return result;
+};
