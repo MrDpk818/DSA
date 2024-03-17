@@ -1,0 +1,15 @@
+var MyHashMap = function() {
+    this.hashmap = [];
+};
+
+MyHashMap.prototype.put = function(key, value) {
+    this.hashmap[key] = [key,value];
+};
+
+MyHashMap.prototype.get = function(key) {
+    return this.hashmap[key]? this.hashmap[key][1] : -1;
+};
+
+MyHashMap.prototype.remove = function(key) {
+    delete this.hashmap[key];
+};
