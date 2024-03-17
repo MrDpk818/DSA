@@ -10,3 +10,19 @@ var deleteMiddle = function(head) {
     slow.next = slow.next.next
     return head;
 };
+
+
+
+var deleteMiddle = function(head) {
+    if(head == null || head.next == null) return null;
+    let prev = new ListNode(0);
+    prev.next = head;
+    let slow = prev;
+    let fast = head;
+    while(fast && fast.next){
+        fast = fast.next.next;
+        slow = slow.next;
+    }
+    slow.next = slow.next.next
+    return prev.next;
+};
