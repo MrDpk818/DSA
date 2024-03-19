@@ -1,0 +1,15 @@
+var productExceptSelf = function (nums) {
+    let a = new Array(nums.length).fill(1);
+    let leftItem = 1;
+    for (let i = 0; i < nums.length; i++) {
+        a[i] *= leftItem;
+        leftItem *= nums[i];
+    }
+    let rightItem = 1;
+    for (let i = nums.length - 1; i >= 0; i--) {
+        a[i] *= rightItem;
+        rightItem *= nums[i];
+    }
+
+    return a;
+};
