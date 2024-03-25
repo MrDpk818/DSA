@@ -1,0 +1,28 @@
+var isAnagram = function (s, t) {
+    let a = {};
+    for (let i of s) {
+        if (a[i]) {
+            a[i]++;
+        } else {
+            a[i] = 1;
+        }
+    }
+
+    for (let i of t) {
+        if (a[i]) {
+            a[i]--;
+        } else {
+            a[i] = 1;
+        }
+        if (a[i] == 0) {
+            delete a[i];
+        }
+    }
+    let keys = Object.keys(a);
+    if(keys.length == 0){
+        return true;
+    }else{
+        return false;
+    }
+
+};
