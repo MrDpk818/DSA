@@ -1,0 +1,12 @@
+var groupAnagrams = function(strs) {
+    let maped = strs.map((strs)=>strs.split("").sort().join(""));
+    let map = {};
+    for(let i=0;i<maped.length;i++){
+        if(!map[maped[i]]){
+            map[maped[i]]=[strs[i]];
+        }else{
+            map[maped[i]].push(strs[i]);
+        }
+    }
+    return Object.values(map);
+};
