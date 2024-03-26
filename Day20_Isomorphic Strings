@@ -1,0 +1,21 @@
+var isIsomorphic = function(s, t) {
+    if(s.length !== t.length)return false;
+    let mapS ={};
+    let mapT ={};
+    for(let i=0;i<s.length;i++){
+        let letterA = s[i];
+        let letterB = t[i];
+        if(!mapS[letterA]){
+            mapS[letterA] = letterB
+        }else if(mapS[letterA] !== letterB){
+            return false;
+        }
+
+        if(!mapT[letterB]){
+            mapT[letterB] = letterA;
+        }else if(mapT[letterB] !== letterA){
+            return false;
+        }
+    }
+    return true;
+};
