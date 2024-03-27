@@ -1,0 +1,23 @@
+var findErrorNums = function(nums) {
+    let obj = {};
+    let a = []
+    for(let i of nums){
+        if(obj[i]){
+            obj[i]++;
+        }else{
+            obj[i] = 1;
+        }
+    }
+    for(let item in obj){
+        if(obj[item] == 2){
+            a.push(+item);
+        }
+    }
+
+    for(let i =1;i<=nums.length;i++){
+        if(!nums.includes(i)){
+            a.push(i);
+        }
+    }
+    return a;
+};
