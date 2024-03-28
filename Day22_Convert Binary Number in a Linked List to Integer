@@ -1,0 +1,9 @@
+var getDecimalValue = function(head) {
+    let currentNode = head;
+    let total =0;
+    while(currentNode){
+        total = total * 2 + currentNode.val
+        currentNode = currentNode.next
+    }
+    return total;
+};
