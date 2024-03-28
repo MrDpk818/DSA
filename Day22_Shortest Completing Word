@@ -1,0 +1,38 @@
+var shortestCompletingWord = function(licensePlate, words) {
+    let normalize = licensePlate.toLowerCase().replace(/[^a-z]/g,'')
+    let mapped = {};
+    for(let i of normalize){
+        if(mapped[i]){
+            mapped[i]++;
+        }else{
+            mapped[i] = 1;
+        }
+    }
+
+    let shortestWord = null;
+    for(let word of words){
+        if(!shortestWord || word.length< shortestWord.length){
+            let newMapped ={};
+            for(let i of word){
+                if(newMapped[i]){
+                    newMapped[i]++;
+                }else{
+                    newMapped[i] = 1;
+                }
+            }
+
+            let isCompleting = true;
+            for(let i in mapped){
+                if(!newMapped[i] || newMapped[i] < mapped[i]){
+                    isCompleting = false;
+                    break;
+                }
+            }
+
+            if(isCompleting){
+                shortestWord = word;
+            }
+        }
+    }
+    return shortestWord;
+};
