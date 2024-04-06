@@ -1,0 +1,12 @@
+var makeGood = function(s) {
+    let result = [];
+    for(let char of s){
+        let prev = result.length? result[result.length-1] : "";
+        if(char.toLowerCase() == prev.toLowerCase() && char !== prev){
+            result.pop();
+        }else{
+            result.push(char);
+        }
+    }
+    return result.join("");
+};
